@@ -17,8 +17,8 @@ router.post('*',function(req,res,next){
   console.log('PARAMS =>'+JSON.stringify(req.params));
 
 
-  var tableName = req.originalUrl.substring(req.originalUrl.indexOf('?') || req.originalUrl.length-1,5);
-  var sqlInsertUpdate = "INSERT INTO " + tableName + " (" + req.bodykeys.toString() + ")" +
+
+  var sqlInsertUpdate = "INSERT INTO " + req.tableName + " (" + req.bodykeys.toString() + ")" +
     "VALUES (" + '\'' + req.bodyvalues.join('\',\'') + '\'' + ") " +
     "ON DUPLICATE KEY UPDATE ";
 
@@ -48,8 +48,7 @@ router.get('*',function(req,res,next){
   console.log('PARAMS =>'+JSON.stringify(req.params));
 
 
-  var tableName = req.originalUrl.substring(req.originalUrl.indexOf('?'),5);
-  var sqlSelect = "SELECT * from " + tableName;
+  var sqlSelect = "SELECT * from " + req.tableName;
 
   var whereClause ="";
 
@@ -84,8 +83,7 @@ router.patch('*',function(req,res,next){
   console.log('PARAMS =>'+JSON.stringify(req.params));
 
 
-  var tableName = req.originalUrl.substring(req.originalUrl.indexOf('?'),5);
-  var sqlInsertUpdate = "INSERT INTO " + tableName + " (" + req.bodykeys.toString() + ")" +
+  var sqlInsertUpdate = "INSERT INTO " + req.tableName + " (" + req.bodykeys.toString() + ")" +
     "VALUES (" + '\'' + req.bodyvalues.join('\',\'') + '\'' + ") " +
     "ON DUPLICATE KEY UPDATE ";
 
@@ -113,8 +111,7 @@ router.delete('*',function(req,res,next){
   console.log('PARAMS =>'+JSON.stringify(req.params));
 
 
-  var tableName = req.originalUrl.substring(req.originalUrl.indexOf('?'),5);
-  var sqlDelete = "DELETE from " + tableName + " Where ";
+  var sqlDelete = "DELETE from " + req.tableName + " Where ";
 
   for(var ii=0;ii<req.bodykeys.length;ii++)
   {

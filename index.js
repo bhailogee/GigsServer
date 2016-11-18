@@ -48,7 +48,7 @@ app.all("*",function(req,res,next){
   req.bodyvalues =  req.bodykeys.map(function(key) {
     return requestParams[key];
   });
-
+  req.tableName = req.originalUrl.substring(req.originalUrl.indexOf('?') || req.originalUrl.length-1,5);
   next();
 });
 
