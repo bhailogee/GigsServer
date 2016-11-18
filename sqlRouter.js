@@ -49,12 +49,18 @@ router.get('*',function(req,res,next){
 
 
   var tableName = req.originalUrl.substring(req.originalUrl.indexOf('?'),5);
-  var sqlSelect = "SELECT * from " + tableName + " Where ";
+  var sqlSelect = "SELECT * from " + tableName;
+
+  var whereClause ="";
 
   for(var ii=0;ii<req.bodykeys.length;ii++)
   {
-    sqlSelect += req.bodykeys[ii]+ " = '"+req.bodyvalues[ii]+ '\' and ';
+    whereClause += req.bodykeys[ii]+ " = '"+req.bodyvalues[ii]+ '\' and ';
   }
+  if(whereClause.length>0) {
+    sqlSelect = sqlSelect + " Where " + whereClause;
+  }
+
 
   sqlSelect=sqlSelect.replace(/and\s*$/, "");
 

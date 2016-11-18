@@ -2,9 +2,7 @@
 
 var   express = require("express");
 var   app = express();
-var   mysql = require('mysql');
 require('./utils');
-var url = 'mongodb://localhost:27017/animals';
 
 var bodyParser = require('body-parser')
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
