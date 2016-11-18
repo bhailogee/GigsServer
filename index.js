@@ -48,7 +48,22 @@ app.all("*",function(req,res,next){
   req.bodyvalues =  req.bodykeys.map(function(key) {
     return requestParams[key];
   });
-  req.tableName = req.originalUrl.substring(req.originalUrl.indexOf('?') || req.originalUrl.length-1,5);
+
+  var url = req.originalUrl;
+
+  url = url.replace('/api/','');
+  if(url.indexOf('?')>=0)
+  {
+    req.tableName = url.substring(0,url.indexOf('?'));
+  }
+  else if(url.indexOf('/')>=0)
+  {
+    req.tableName = url.substring(0,url.indexOf('/'));
+  }
+  else
+  {
+    req.tableName = url;
+  }
   next();
 });
 
