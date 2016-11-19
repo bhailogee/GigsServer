@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
 var sqlRouter=require('./sqlRouter');
+var testRouter=require('./test');
 
 app.all("*",function(req,res,next){
   debugger;
@@ -68,10 +69,7 @@ app.all("*",function(req,res,next){
 });
 
 app.use("/api", sqlRouter);
-app.use("/test", function(req,res,next){
-
-  res.send("Hello world");
-});
+app.use("/test", testRouter);
 
 
 
