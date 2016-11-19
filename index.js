@@ -68,6 +68,10 @@ app.all("*",function(req,res,next){
 });
 
 app.use("/api", sqlRouter);
+app.use("/test", function(req,res,next){
+
+  res.send("Hello world");
+});
 
 
 
