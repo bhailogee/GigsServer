@@ -110,15 +110,16 @@ router.delete('*',function(req,res,next){
   console.log('QUERY =>'+JSON.stringify(req.query));
   console.log('PARAMS =>'+JSON.stringify(req.params));
 
+  var id = req.params[0].replace('/'+req.tableName+'/','');
 
-  var sqlDelete = "DELETE from " + req.tableName + " Where ";
+  var sqlDelete = "DELETE from " + req.tableName + " Where _id = '"+id+"'";
 
-  for(var ii=0;ii<req.bodykeys.length;ii++)
+  /*for(var ii=0;ii<req.bodykeys.length;ii++)
   {
     sqlDelete += req.bodykeys[ii]+ " = '"+req.bodyvalues[ii]+ '\',';
   }
   sqlDelete=sqlDelete.replace(/,\s*$/, "");
-
+*/
    /* req.bodykeys.reduce(function (acc, key, ind) {
       return key + "= '" + req.bodyvalues[ind] + '\','
     }).replace(/,\s*$/, "");*/
