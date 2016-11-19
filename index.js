@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 }));
 var sqlRouter=require('./sqlRouter');
 var testRouter=require('./test');
-
+var skipKeysLike = ['__','$$'];
 app.all("*",function(req,res,next){
   debugger;
   console.log('URL =>'+req.originalUrl);
@@ -35,11 +35,11 @@ app.all("*",function(req,res,next){
 
   var __keys = Object.keys(requestParams);
 
-  for(var ii=0;ii<__keys.length;ii++)
-  {
-    if(__keys[ii].indexOf('__')==0)
-    {
-      delete requestParams[__keys[ii]];
+  for(var ii=0;ii<__keys.length;ii++) {
+
+    for (jj = 0; jj < skipKeysLike.length; jj++) {
+      if (__keys[ii].indexOf(skipKeysLike[jj]) == 0)
+        delete requestParams[__keys[ii]];
     }
   }
   //requestParams.extend(req.query);
@@ -53,13 +53,14 @@ app.all("*",function(req,res,next){
   var url = req.originalUrl;
 
   url = url.replace('/api/','');
-  if(url.indexOf('?')>=0)
-  {
-    req.tableName = url.substring(0,url.indexOf('?'));
-  }
-  else if(url.indexOf('/')>=0)
+
+  if(url.indexOf('/')>=0)
   {
     req.tableName = url.substring(0,url.indexOf('/'));
+  }
+  else if(url.indexOf('?')>=0)
+  {
+    req.tableName = url.substring(0,url.indexOf('?'));
   }
   else
   {

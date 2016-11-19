@@ -26,7 +26,7 @@ var service ={
         return;
       }
 
-      console.log("Result"+ rows.length);
+      console.log("Result "+ (rows.length || rows.affectedRows));
       deferred.resolve({query: query, rows: rows, fields: fields, params: params});
     });
 
