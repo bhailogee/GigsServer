@@ -1,0 +1,52 @@
+﻿<div class="panel">
+    <header class="panel-heading">
+        Events Records
+
+    </header>
+    <!-- <div class="box-header"> -->
+    <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
+    <!-- </div> -->
+    <div class="panel-body table-responsive">
+        <div class="box-tools m-b-15">
+            <div class="input-group">
+                <input name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" type="text">
+                <div class="input-group-btn">
+                    <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <table class="table table-hover" ng-controller="dashboardController">
+            <tbody>
+                <tr class="table-head">
+                    <th>Event Title</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+                <tr ng-repeat="x in dashboard">
+                    <td>{{x.eventtitle}}</td>
+                    <td>{{x.eventdate}}</td>
+                   
+                    <td>
+                        <div class="">
+                            <a href="#/recorddetail/{{x._id}}" ng-click="showdata()" data-placement="top" data-toggle="tooltip" class="btn btn-default btn-xs tooltips" data-original-title="View"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            <!--<button data-placement="top" data-toggle="tooltip" class="btn btn-default btn-xs tooltips" data-original-title="Block"><i class="fa fa-ban" aria-hidden="true"></i></button>-->
+                            <button data-placement="top" data-toggle="tooltip" class="btn btn-default btn-xs tooltips" data-original-title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                        </div>
+                    </td>
+                </tr>
+             
+            </tbody>
+        </table>
+        <div>
+            <ul class="pagination pagination-sm pull-right">
+                <li><a href="#">«</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">»</a></li>
+            </ul>
+        </div>
+    </div><!-- /.box-body -->
+</div>

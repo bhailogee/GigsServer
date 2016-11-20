@@ -1,0 +1,53 @@
+﻿<div class="panel" ng-controller="assistantController">
+    <header class="panel-heading">
+        Assistants Management
+
+    </header>
+    <!-- <div class="box-header"> -->
+    <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
+    <!-- </div> -->
+    <div class="panel-body table-responsive">
+        <div class="box-tools m-b-15">
+            <button type="button" ui-sref="addassistant" class="btn btn-primary pull-right create-assistant-btn">Create Assistant</button>
+            <div class="input-group">
+                <input name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" type="text">
+                <div class="input-group-btn">
+                    <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+
+        </div>
+        <table class="table table-hover">
+            <tbody>
+                <tr class="">
+                    <th>Assistant Name</th>
+                    <th>User Name</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                <tr ng-repeat="u in userData">
+                    <td>{{u.name}}</td>
+                    <td>{{u.userName}}</td>
+                    <td><span class="label label-success">{{u.status}}</span></td>
+                    <td>
+                        <div class="">
+                            <button data-placement="top" data-toggle="tooltip" class="btn btn-default btn-xs tooltips" data-original-title="View"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                            <button data-placement="top" data-toggle="tooltip" class="btn btn-default btn-xs tooltips" data-original-title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--<div>
+            <ul class="pagination pagination-sm pull-right">
+                <li><a href="#">«</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">»</a></li>
+            </ul>
+        </div>-->
+    </div><!-- /.box-body -->
+</div>

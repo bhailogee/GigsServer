@@ -9,6 +9,8 @@ app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
+
+app.use(express.static('public'));
 var sqlRouter=require('./sqlRouter');
 var testRouter=require('./test');
 var skipKeysLike = ['__','$$'];
@@ -71,6 +73,9 @@ app.all("*",function(req,res,next){
 
 app.use("/api", sqlRouter);
 app.use("/test", testRouter);
+app.get('/',function(req,res,next){
+  res.sendfile('public/index.html');
+})
 
 
 

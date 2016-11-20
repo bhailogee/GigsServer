@@ -1,0 +1,154 @@
+﻿<div class="panel" ng-controller="recordetailController">
+    <header class="">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb">
+            <li><a href="#">Dashboard</a></li>
+            <li class="active">Undertoe Sessions</li>
+        </ul>
+        <!--breadcrumbs end -->
+
+    </header>
+    <!-- <div class="box-header"> -->
+    <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
+    <!-- </div> -->
+    <div class="panel-body">
+        <div class="col-md-9 col-xs-12">
+            <h3 class="h3-heading">Undertow Sessions</h3>
+            <h5 class="h3-heading">10-oct-2016 <a href="#"><i class="fa fa-calendar calander-icon" aria-hidden="true"></i></a></h5>
+        </div>
+        <div class="col-md-3 col-xs-12">
+            <button type="button" class="btn btn-danger pull-right">Delete Record</button>
+        </div>
+        <div class="col-md-12 heading-blue col-xs-12">
+            <h4 class="text-center">Institute Information</h4>
+        </div>
+
+        <table class="table table-hover">
+            <tbody>
+                <tr class="table-head">
+                    <th style="width: 26%;">Institute Name</th>
+                    <th style="width: 40%;">Address</th>
+                    <th style="width: 21%;">Type</th>
+                    <th style="width: 13%;">Actions</th>
+                </tr>
+                <tr ng-repeat="p in instituteData">
+                    <td contenteditable="false">{{p.institutename}}</td>
+                    <td contenteditable="false">{{p.address}}</td>
+                    <td contenteditable="false">{{p.type}}</td>
+                    <td contenteditable="false">
+                        <div class="">
+                            <button data-placement="top" data-toggle="tooltip" class="btn btn-default btn-xs tooltips editbtn" data-original-title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <div class="col-md-12 heading-blue">
+            <h4 class="text-center">Performance Information</h4>
+        </div>
+        <table class="table table-hover">
+            <tbody>
+                <tr class="table-head">
+                    <th style="width: 87%;">List of songs</th>
+                    <th>Actions</th>
+                </tr>
+                <tr ng-repeat="p in Songs">
+                    <td contenteditable="false">{{p.title}}</td>
+                    <td contenteditable="false">
+                        <div class="">
+                            <button data-placement="top" data-toggle="tooltip" class="btn btn-default btn-xs tooltips editbtn" data-original-title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            <button data-placement="top" data-toggle="tooltip" class="btn btn-default btn-xs tooltips" data-original-title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="col-md-12 gray-bg">
+            <p style="padding-top:10px;"><b>Pictures Information</b></p>
+        </div>
+        <div class="col-md-12 space-remove">
+            <ul class="pictures-section">
+                <li ng-repeat="p in PictureInformation">
+                    <img src="{{p.pictureURL}}">
+                    <a href="#"><i class="fa fa-minus-circle delete-img" aria-hidden="true" title="delete"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-12 heading-blue">
+            <h4 class="text-center">Participant Information</h4>
+        </div>
+        <table class="table table-hover">
+            <tbody>
+                <tr class="table-head">
+                    <th style="width: 26%;">Participant's Name</th>
+                    <th style="width: 10%;">Gender</th>
+                    <th style="width: 17%;">Phone No#</th>
+                    <th style="width: 34%;">Email</th>
+                    <th>Actions</th>
+                </tr>
+                <tr ng-repeat="p in ParticipantInformation">
+                    <td contenteditable={{editProp}}>{{p.Name}}</td>
+                    <td contenteditable={{editProp}}>{{p.Gender}}</td>
+                    <td contenteditable="{{editProp}}">{{p.phone}}</td>
+                    <td contenteditable="{{editProp}}">{{p.email}}</td>
+                    <td contenteditable="false">
+                        <button class="btn btn-default btn-xs tooltips editbtn" ng-click="makeEditable()"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                        <button data-placement="top" data-toggle="tooltip" class="btn btn-default btn-xs tooltips" data-original-title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="js/Director/app.js" type="text/javascript"></script>
+<script>
+$(document).ready(function () {
+      $('#btnHide').click(function () {
+          //$('td:nth-child(2)').hide();
+          // if your table has header(th), use this
+          $('td:nth-child(3),th:nth-child(3)').hide();
+      });
+  });
+
+
+      $(document).ready(function () {
+          $('.1').click(function () {
+              var currentTD = $(this).parents('tr').find('td');
+              if ($(this).html() == '<i class="fa fa-pencil" aria-hidden="true"></i>') {
+                  currentTD = $(this).parents('tr').find('td');
+                  $.each(currentTD, function () {
+                      $(this).prop('contenteditable', true)
+					   $(this).closest('tr').addClass("listitem-bg")
+                  });
+              } else {
+                 $.each(currentTD, function () {
+                      $(this).prop('contenteditable', false)
+					  $(this).closest('tr').removeClass("listitem-bg")
+                  });
+              }
+
+              $(this).html($(this).html() == '<i class="fa fa-pencil" aria-hidden="true"></i>' ? '<i class="fa fa-check" aria-hidden="true"></i>' : '<i class="fa fa-pencil" aria-hidden="true"></i>')
+
+          });
+
+      });
+            $('#noti-box').slimScroll({
+                height: '400px',
+                size: '5px',
+                BorderRadius: '5px'
+            });
+
+            $('input[type="checkbox"].flat-grey, input[type="radio"].flat-grey').iCheck({
+                checkboxClass: 'icheckbox_flat-grey',
+                radioClass: 'iradio_flat-grey'
+            });
+
+
+</script>

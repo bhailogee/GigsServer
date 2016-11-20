@@ -1,0 +1,46 @@
+﻿<div class="panel" ng-controller="assistantController">
+    <header class="panel-heading">
+        Add Assistant
+
+    </header>
+    <!-- <div class="box-header"> -->
+    <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
+    <!-- </div> -->
+    <div class="panel-body table-responsive">
+        <div class="col-md-5">
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input class="form-control" id="name" placeholder="" type="text" ng-model="name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">User Name</label>
+                    <input class="form-control" id="username" placeholder="" type="text" ng-model="username">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Password</label>
+                    <input class="form-control" id="Password" placeholder="" type="password" ng-model="password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Device</label>
+                    <input class="form-control" id="Device" placeholder="" type="text" ng-model="device">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">IMEI</label>
+                    <input class="form-control" id="IMEI" placeholder="" type="text" ng-model="IMEI">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Status</label>
+                    <select class="form-control input-sm">
+                        <option value="status">Select</option>
+                        <option value="active">Active</option>
+                        <option value="blocked">Blocked</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-default margin-top-20">Cancel</button>
+                <input type="button" value="Create New Assistant" class="btn btn-primary margin-top-20" ng-click="insertData()">
+            </form>
+        </div>
+
+    </div><!-- /.box-body -->
+</div>
