@@ -1,4 +1,4 @@
-*/
+
 html,
 body {
   overflow-x: hidden!important;
@@ -16,7 +16,10 @@ a:active,
 a:focus {
   outline: none;
   text-decoration: none;
-  color: #72afd2;
+  color: #;
+}
+ui-view {
+    display: block;
 }
 /* Layouts */
 .wrapper {
@@ -619,17 +622,17 @@ Gradient Background colors
     Components: navbar, logo and content header
 -------------------------------------------------
 */
-body > .header {
+body .header {
   position: relative;
   max-height: 100px;
   z-index: 1030;
 }
-body > .header .navbar {
+body .header .navbar {
   height: 50px;
   margin-bottom: 0;
   margin-left: 220px;
 }
-body > .header .navbar .sidebar-toggle {
+body .header .navbar .sidebar-toggle {
   float: left;
   padding: 9px 5px;
   margin-top: 8px;
@@ -643,10 +646,10 @@ body > .header .navbar .sidebar-toggle {
   -moz-border-radius: 0 !important;
   border-radius: 0 !important;
 }
-body > .header .navbar .sidebar-toggle:hover .icon-bar {
+body .header .navbar .sidebar-toggle:hover .icon-bar {
   background: #f6f6f6;
 }
-body > .header .navbar .sidebar-toggle .icon-bar {
+body .header .navbar .sidebar-toggle .icon-bar {
   display: block;
   width: 22px;
   height: 2px;
@@ -654,18 +657,18 @@ body > .header .navbar .sidebar-toggle .icon-bar {
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
-body > .header .navbar .sidebar-toggle .icon-bar + .icon-bar {
+body .header .navbar .sidebar-toggle .icon-bar + .icon-bar {
   margin-top: 4px;
 }
-body > .header .navbar .nav > li.user > a {
+body .header .navbar .nav > li.user > a {
   font-weight: bold;
 }
-body > .header .navbar .nav > li.user > a > .fa,
-body > .header .navbar .nav > li.user > a > .glyphicon,
-body > .header .navbar .nav > li.user > a > .ion {
+body .header .navbar .nav > li.user > a > .fa,
+body .header .navbar .nav > li.user > a > .glyphicon,
+body .header .navbar .nav > li.user > a > .ion {
   margin-right: 5px;
 }
-body > .header .navbar .nav > li > a > .label {
+body .header .navbar .nav > li > a > .label {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
@@ -680,10 +683,10 @@ body > .header .navbar .nav > li > a > .label {
   text-align: center;
   padding: 2px;
 }
-body > .header .navbar .nav > li > a:hover > .label {
+body .header .navbar .nav > li > a:hover > .label {
   top: 3px;
 }
-body > .header .logo {
+body .header .logo {
  float: left;
 font-size: 20px;
 line-height: 56px;
@@ -695,7 +698,7 @@ font-weight: 500;
 height: 70px;
 display: block;
 }
-body > .header .logo .icon {
+body .header .logo .icon {
   margin-right: 10px;
 }
 .right-side > .content-header {

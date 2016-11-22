@@ -3,26 +3,25 @@ var routerApp = angular.module('routerApp', ['ui.router']);
 routerApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
          
-        .state('home', {
-            url: '/home',
-            templateUrl: 'dashboard.html'
+        .state('main', {
+            templateUrl: 'main.html'
         })
-         .state('dashboard', {
+         .state('main.dashboard', {
              url: '/dashboard',
              templateUrl: 'dashboard.html',
              controller: "dashboardController"
          })
-        .state('recorddetail', {
+        .state('main.recorddetail', {
             url: '/recorddetail/:recordid',
             templateUrl: 'recordetail.html',
             controller: 'recordetailController'
         })
-        .state('assistant', {
+        .state('main.assistant', {
             url: '/assistant',
             templateUrl: 'assistant.html',
             controller: 'assistantController'
         })
-         .state('addassistant', {
+         .state('main.addassistant', {
              url: '/addassistant',
              templateUrl: 'addassistant.html'
          })
@@ -33,6 +32,13 @@ routerApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider
     })
     $urlRouterProvider.otherwise('/login');
     //$locationProvider.html5Mode(true);
+});
+routerApp.run(function ($state) {
+    $state.go('login');
+});
+
+routerApp.controller('mainController', function ($scope, $http) {
+    
 });
 
 routerApp.controller('dashboardController', function ($scope, $http) {
@@ -98,7 +104,9 @@ routerApp.controller('assistantController', function ($window,$scope, $http) {
         $window.location.href = '#/assistant';
     }
 })
-routerApp.controller('loginController', function ($window, $scope, $http) {
+routerApp.controller('loginController', function ($window, $scope, $http, $state) {
+
+
     var Admin;
     $scope.LoginData = function () {
        
@@ -107,7 +115,8 @@ routerApp.controller('loginController', function ($window, $scope, $http) {
         var Password = "admin";
         if($scope.Username == UserName && $scope.Password == Password)
         {
-            $window.location.href = '#/home';
+            //$window.location.href = '#/home';
+            $state.go('main.dashboard');
         }
         else {
             alert("User name and password does not match ! :(")

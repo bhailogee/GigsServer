@@ -3,6 +3,11 @@
 /* helpers/align.css */
 
 .align {
+
+  height: 100%;
+  position: fixed;
+  left: 50%;
+  margin-left: -135px;
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
@@ -29,7 +34,7 @@
   margin-right: auto;
   max-width: 320px;
   max-width: 20rem;
-  width: 90%;
+  width: 100%;
 }
 
 /* helpers/hidden.css */
@@ -87,7 +92,7 @@ body {
   background-color:#0A2E4A;
   background-image:url(../img/login-bg.jpg);
   background-size: cover;
-  
+
 }
 
 /* modules/anchor.css */
@@ -163,7 +168,7 @@ input[type='submit'] {
   padding: 1rem;
 }
 
-.login label {
+.login .login-input {
   background-color: #F0F3F4;
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
@@ -171,6 +176,7 @@ input[type='submit'] {
   padding-left: 1.25rem;
   padding-right: 20px;
   padding-right: 1.25rem;
+  margin-bottom: 0px !important;
 }
 
 .login input[type='password'],
@@ -241,4 +247,10 @@ p {
   right: 100%;
   width: 100%;
   height: 2px;
+}
+input:required {
+  box-shadow:none !important;
+}
+input:invalid {
+  box-shadow:0 0 3px red;
 }
