@@ -8,9 +8,6 @@
         <!--breadcrumbs end -->
 
     </header>
-    <!-- <div class="box-header"> -->
-    <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
-    <!-- </div> -->
     <div class="panel-body">
         <div class="col-md-9 col-xs-12">
             <h3 class="h3-heading">Undertow Sessions</h3>
@@ -57,8 +54,8 @@
                     <td contenteditable="false">{{p.title}}</td>
                     <td contenteditable="false">
                         <div class="">
-                            <button data-placement="top" data-toggle="tooltip" class="btn btn-default btn-xs tooltips editbtn" data-original-title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                            <button data-placement="top" data-toggle="tooltip" class="btn btn-default btn-xs tooltips" data-original-title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                            <button data-placement="top" data-toggle="tooltip" class="btn btn-default btn-xs tooltips editbtn" data-original-title="Edit" ng-click="updatePerformanceData(p)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            <button data-placement="top" data-toggle="tooltip" class="btn btn-default btn-xs tooltips" data-original-title="Delete" ng-click="deletePerformanceData(p._id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                         </div>
                     </td>
                 </tr>

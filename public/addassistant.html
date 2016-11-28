@@ -11,23 +11,23 @@
             <form>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Name</label>
-                    <input class="form-control" id="name" placeholder="" type="text" ng-model="name">
+                    <input class="form-control" id="name" placeholder="" type="text" ng-model="name" ng-required="required">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">User Name</label>
-                    <input class="form-control" id="username" placeholder="" type="text" ng-model="username">
+                    <input class="form-control" id="username" placeholder="" type="text" ng-model="username" ng-required="required">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Password</label>
-                    <input class="form-control" id="Password" placeholder="" type="password" ng-model="password">
+                    <input class="form-control" id="Password" placeholder="" type="password" ng-model="password" ng-required="required">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Device</label>
-                    <input class="form-control" id="Device" placeholder="" type="text" ng-model="device">
+                    <input class="form-control" id="Device" placeholder="" type="text" ng-model="device" ng-required="required">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">IMEI</label>
-                    <input class="form-control" id="IMEI" placeholder="" type="text" ng-model="IMEI">
+                    <input class="form-control" id="IMEI" placeholder="" type="text" ng-model="IMEI" ng-required="required">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Status</label>
@@ -37,7 +37,7 @@
                         <option value="blocked">Blocked</option>
                     </select>
                 </div>
-                <button type="button" class="btn btn-default margin-top-20">Cancel</button>
+                <a ui-sref="main.assistant" class="btn btn-default margin-top-20">Cancel</a>
                 <input type="button" value="Create New Assistant" class="btn btn-primary margin-top-20" ng-click="insertData()">
             </form>
         </div>
